@@ -1,0 +1,227 @@
+//UserMaster Collection
+UserMaster {
+	_id: Primary Key Value
+	EmailID : "dishant.1990@gmail.com" (It will be used as Login ID)
+	Password : EncryptedFormat
+	FirstName : "Dishant"
+	LastName : "Kalra"
+	MobileNo : 10 character string which accepts only numbers (Client side validation)
+	CreatedBy : 
+	CreatedDate : 
+	RolesAssigned : [
+		{
+			RoleName : "Interviewer"
+		},
+		{
+			RoleName : "Manager"
+		}
+	] // end of RolesAssigned array
+}
+
+
+// StudentFile Collection
+StudentFile {
+	_id: Primary Key Value
+	FileNo: Unique Key Value (Ensure Indexing) (Example Values File1, File2, File3,....)
+	FileStatus: New, PendingVerification, Verified, In-Progress, Closed, Archived
+	CreatedBy: Refer Data Dictionary (Foreign Key of User Master Collection)
+	CreatedDate: Current Date
+	InterviewedBy: UserId of the Interviewer
+	InterviewDate:
+	CourseDetails : [
+		// Multiple Courses Applied
+		{
+			ExpectedCourseFee:
+			NumberOfYears:
+			....
+		},
+		{
+		...
+		...
+		}
+	]
+	
+	Applications : [
+		{
+			ApplicationNo: Unique Key [Example Application1, Application2,....)
+			ApplicationStatus: New,....,In-progress, Closed
+			CreatedBy:
+			CreatedDate:
+			InterviewedBy:
+			InterviewDate:
+			ChequeDetails : [
+			
+			] // end of ChequeDetails array
+			AppliedCourseDetails : {
+			.....
+			}
+		},
+		{
+			ApplicationNo: Application2
+			....
+			....
+		}
+	] // end of Applications array
+	
+	StudentProfile : {
+		FirstName:
+		MiddleName:
+		LastName:
+		EmailID: (Ensure Reg. Expression)
+		MobileNo:
+		TelephoneNo:
+		AlternateContactNo:
+		PartTimeJobBusinessDescription: "Working as a freelancer targetting SMEs"
+		SalaryPerMonth: (Amount Type)
+		MotherTongue:
+		Religion:
+		DescribePrizeDetails: (If any, won)
+		AimInLife:
+		DescribeOtherProblemsInFamily:
+		DescribeIfOtherFamilyMembersGotHelp:
+		DateOfBirth:
+		PlaceOfBirth:
+	}
+	
+	HelpFromOtherSources : [
+		{
+			Name:
+			Address: {
+				AddressLine1:
+				AddressLine2:
+				City:
+				State:
+				Country:
+				PinCode:
+			}
+			HelpAmount:
+		},
+		{
+		...
+		...
+		}
+	] // end of HelpFromOtherSources array
+	
+	EducationLoanDetails : [
+		{
+			Name:
+			Address : {
+			...
+			...
+			}
+			LoanAmount:
+		},
+		{
+		...
+		...
+		}
+	] // end of EducationLoanDetails array
+	
+	FamilyMemberDetails : [
+		{
+			Relation: LOV ENTITYTYPE "Father"
+			FirstName:
+			MiddleName:
+			LastName:
+			Age:
+			Qualification: 
+			Occupation:
+			EmployerDetails : {
+				Name:
+				Address : {
+				...
+				...
+				}
+			EarningsPerMonth: (Amount Type)
+		},
+		{
+			Relation: "Brother"
+			FirstName:
+			MiddleName:
+			LastName:
+			Age:
+			Qualification:
+			Occupation:
+			SchoolCollegeDetails : {
+				Name:
+				Address : {
+				...
+				...
+				}
+			}
+			EmployerDetails : {
+			...
+			...
+			}
+		}
+		// Other Family Member Details
+	] // end of FamilyMemberDetails array
+	
+	BankAccountDetails : [
+		{
+			IsCurrent : "Y"
+			AccountNo : "0497497393"
+			BankName : "ICICI Bank Ltd"
+			Branch : "Ulhasnagar 2 Main Branch"
+			AccountHolderName1 : "Dishant Kalra"
+			AccountHolderName2 : "Bharti Kalra"
+			AccountHolderName3 : "Mahesh Kalra"
+		},
+		{
+			IsCurrent : "N"
+			....
+			....
+		}
+	] // end of BankAccountDetails Array
+	
+	ResidenceDetails : {
+		Ownership : (LOV - RESIDENCEOWNERSHIP)
+		OwnershipOtherDescription : "Relative's House"
+		ResidenceSizeInSqFt : 925.00 (Number type)
+		RentAmountPerMonth : 10,000.00
+		ResidenceType : (LOV - RESIDENCETYPE)
+		HaveWaterSupply : "Y"
+		HaveBathroom : "Y"
+		HaveToilet : "Y"
+		HaveBed : "Y"
+		HaveCookingGas : "Y"
+		HaveCupBoard : "Y"
+		HaveTelevision : "Y"
+		HaveRefrigerator : "N"
+		HaveVehicle : "Y"
+		DescribeVehicle : "Two-Wheeler"
+		HaveWashingMachine : "N"
+		HaveOven : "N"
+		HaveComputer : "Y"
+	}
+	
+	CurriculumRecord : [
+		{
+			CourseYear : (LOV - COURSEYEAR)
+			Branch : "I.T."
+			InstituteName : "VESIT"
+			PassingYear : "2009"
+			PercentageMarks : 8.3 (Floating Type)
+		},
+		{
+			....
+			....
+		}
+	] // end of CurriculumRecord array
+	
+	DocumentFile : {
+		Income_SalaryCertificate_LetterFromEmployer : "Y"
+		Income_SalaryCertificate_LetterFromEmployer_FilePath : (Releative Path of file on the server)
+		PreviousYearsMarksheets : "Y"
+		PreviousYearsMarksheetsFilePath : (Releative Path of semicolon separated files on the server)
+		RationCard: "Y"
+		RationCardFilePath : (Releative Path of file on the server)
+		AadharCard : "Y"
+		AadharCardFilePath : (Releative Path of file on the server)
+		BankPassbookWithUpdatedEntries : "Y"
+		BankPassbookWithUpdatedEntriesFilePath : (Releative Path of file on the server)
+		LatestElectricityBill : "Y"
+		LatestElectricityBillFilePath : (Releative Path of file on the server)
+	}	
+		
+} // end of StudentFile	
